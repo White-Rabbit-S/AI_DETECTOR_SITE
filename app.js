@@ -96,18 +96,10 @@ if (loginForm) {
 }
 
 // ==========================================
-// AUTHENTICATION CHECK
+// AUTHENTICATION CHECK - DISABLED FOR TESTING
 // ==========================================
 
-// TEST MODE: Authentication checks disabled
-// All pages are accessible without login
-function checkAuthentication() {
-  // No authentication required for testing
-  return true;
-}
-
-// Run authentication check on page load (currently disabled)
-// document.addEventListener('DOMContentLoaded', checkAuthentication);
+// Authentication completely disabled - no checks, no redirects
 
 // ==========================================
 // CASE STATUS UPDATE
