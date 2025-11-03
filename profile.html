@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Investigator Profile - TraceGuard">
+  <title>Profile - TraceGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>TraceGuard</h2>
+        <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.25rem;">Investigator Portal</p>
+      </div>
+
+      <nav>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/Graph.png" alt="" class="sidebar-menu-icon">
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/GetReport.png" alt="" class="sidebar-menu-icon">
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="calendar.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📅</span>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="case-status.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📊</span>
+              <span>Case Status</span>
+            </a>
+          </li>
+          <li style="margin-top: 2rem;">
+            <a href="profile.html" class="active">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">👤</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">🚪</span>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="dashboard-header">
+        <h1>Investigator Profile</h1>
+        <p style="color: var(--text-muted);">Manage your account and preferences</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Profile Information -->
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Profile Information</h3>
+          </div>
+          
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; margin: 0 auto 1rem;">
+              JD
+            </div>
+            <h3 style="margin-bottom: 0.25rem;">John Doe</h3>
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin: 0;">Senior Investigator</p>
+          </div>
+
+          <form id="profileForm">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input 
+                type="text" 
+                id="fullName" 
+                name="fullName" 
+                value="John Doe"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                value="john.doe@traceguard.com"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                value="+1 (555) 123-4567"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="badge">Investigator Badge ID</label>
+              <input 
+                type="text" 
+                id="badge" 
+                name="badge" 
+                value="INV-2025-001"
+                disabled
+                style="background: var(--soft-white);"
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Update Profile
+            </button>
+          </form>
+        </div>
+
+        <!-- Account Statistics -->
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Performance Statistics</h3>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+            <div style="padding: 1.25rem; background: var(--soft-white); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Total Cases Handled</span>
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">142</span>
+              </div>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--soft-white); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Cases This Month</span>
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">24</span>
+              </div>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--soft-white); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Success Rate</span>
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--success-green);">94%</span>
+              </div>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--soft-white); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Avg. Resolution Time</span>
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--warning-amber);">3.2 days</span>
+              </div>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--soft-white); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Years of Service</span>
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Settings -->
+      <div class="widget widget-full" style="margin-top: 2rem;">
+        <div class="widget-header">
+          <h3>Security Settings</h3>
+        </div>
+
+        <form id="securityForm">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <input 
+              type="password" 
+              id="currentPassword" 
+              name="currentPassword" 
+              placeholder="Enter current password"
+            >
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input 
+                type="password" 
+                id="newPassword" 
+                name="newPassword" 
+                placeholder="Enter new password"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm New Password</label>
+              <input 
+                type="password" 
+                id="confirmPassword" 
+                name="confirmPassword" 
+                placeholder="Confirm new password"
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Change Password
+          </button>
+        </form>
+      </div>
+
+      <!-- Notification Preferences -->
+      <div class="widget widget-full" style="margin-top: 2rem;">
+        <div class="widget-header">
+          <h3>Notification Preferences</h3>
+        </div>
+
+        <form id="notificationForm">
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--soft-white); border-radius: 8px;">
+              <div>
+                <h4 style="margin: 0 0 0.25rem 0; font-size: 1rem; color: var(--navy);">Email Notifications</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">Receive case updates via email</p>
+              </div>
+              <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
+                <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--accent-blue); transition: 0.4s; border-radius: 24px;"></span>
+              </label>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--soft-white); border-radius: 8px;">
+              <div>
+                <h4 style="margin: 0 0 0.25rem 0; font-size: 1rem; color: var(--navy);">SMS Notifications</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">Get urgent alerts via text message</p>
+              </div>
+              <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
+                <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--accent-blue); transition: 0.4s; border-radius: 24px;"></span>
+              </label>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--soft-white); border-radius: 8px;">
+              <div>
+                <h4 style="margin: 0 0 0.25rem 0; font-size: 1rem; color: var(--navy);">New Case Assignments</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">Notify when new cases are assigned to you</p>
+              </div>
+              <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
+                <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--accent-blue); transition: 0.4s; border-radius: 24px;"></span>
+              </label>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--soft-white); border-radius: 8px;">
+              <div>
+                <h4 style="margin: 0 0 0.25rem 0; font-size: 1rem; color: var(--navy);">Weekly Summary Report</h4>
+                <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">Receive weekly performance summary</p>
+              </div>
+              <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
+                <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
+                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-light); transition: 0.4s; border-radius: 24px;"></span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem;">
+            Save Preferences
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

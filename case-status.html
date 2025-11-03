@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case Status Overview - TraceGuard Investigator">
+  <title>Case Status - TraceGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>TraceGuard</h2>
+        <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.25rem;">Investigator Portal</p>
+      </div>
+
+      <nav>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/Graph.png" alt="" class="sidebar-menu-icon">
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/GetReport.png" alt="" class="sidebar-menu-icon">
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="calendar.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📅</span>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="case-status.html" class="active">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📊</span>
+              <span>Case Status</span>
+            </a>
+          </li>
+          <li style="margin-top: 2rem;">
+            <a href="profile.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">👤</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">🚪</span>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="dashboard-header">
+        <h1>Case Status Overview</h1>
+        <p style="color: var(--text-muted);">Track all cases by workflow stage</p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="widget" style="margin-bottom: 2rem;">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div>
+            <label for="statusFilter" style="display: block; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.25rem;">Filter by Status</label>
+            <select id="statusFilter" class="status-select" style="min-width: 200px;">
+              <option value="all">All Cases</option>
+              <option value="not-started">Not Started</option>
+              <option value="in-review">In Review</option>
+              <option value="contact-attempted">Contact Attempted</option>
+              <option value="investigation-active">Investigation Active</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div>
+            <label for="priorityFilter" style="display: block; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.25rem;">Filter by Priority</label>
+            <select id="priorityFilter" class="status-select" style="min-width: 150px;">
+              <option value="all">All Priorities</option>
+              <option value="high">High Priority</option>
+              <option value="medium">Medium Priority</option>
+              <option value="low">Low Priority</option>
+            </select>
+          </div>
+          <div style="margin-left: auto;">
+            <label style="display: block; font-size: 0.875rem; color: transparent; margin-bottom: 0.25rem;">.</label>
+            <button class="btn btn-secondary" onclick="exportReport()">📥 Export Report</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Workflow -->
+      <div class="widget widget-full" style="margin-bottom: 2rem;">
+        <div class="widget-header">
+          <h3>Case Workflow Pipeline</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem;">
+          <div style="text-align: center; padding: 1.5rem; background: var(--soft-white); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-muted);">8</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Not Started</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--soft-white); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--accent-blue);">12</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">In Review</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--soft-white); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--warning-amber);">6</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Contact Attempted</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--soft-white); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--navy);">4</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Investigation Active</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--soft-white); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--success-green);">18</div>
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Completed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Cases List -->
+      <div class="widget widget-full">
+        <div class="widget-header">
+          <h3>All Cases</h3>
+          <span style="font-size: 0.875rem; color: var(--text-muted);">48 Total Cases</span>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+            <thead>
+              <tr style="background: var(--soft-white); border-bottom: 2px solid var(--border-light);">
+                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--navy);">Case ID</th>
+                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--navy);">Date</th>
+                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--navy);">Priority</th>
+                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--navy);">Status</th>
+                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--navy);">Progress</th>
+                <th style="padding: 1rem; text-align: left; font-weight: 600; color: var(--navy);">Action</th>
+              </tr>
+            </thead>
+            <tbody id="casesTable">
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1134</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Nov 3, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-high">High</span></td>
+                <td style="padding: 1rem; color: var(--accent-blue);">In Review</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 25%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1133</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Nov 3, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-medium">Medium</span></td>
+                <td style="padding: 1rem; color: var(--text-muted);">Not Started</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 0%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1132</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Nov 2, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-medium">Medium</span></td>
+                <td style="padding: 1rem; color: var(--warning-amber);">Contact Attempted</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 60%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1131</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Nov 2, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-low">Low</span></td>
+                <td style="padding: 1rem; color: var(--accent-blue);">In Review</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 35%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1128</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Nov 1, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-high">High</span></td>
+                <td style="padding: 1rem; color: var(--navy);">Investigation Active</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1125</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Oct 31, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-medium">Medium</span></td>
+                <td style="padding: 1rem; color: var(--accent-blue);">In Review</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 50%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 1rem; font-weight: 600; color: var(--navy);">TR-2025-1120</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Oct 29, 2025</td>
+                <td style="padding: 1rem;"><span class="badge badge-low">Low</span></td>
+                <td style="padding: 1rem; color: var(--success-green);">Completed</td>
+                <td style="padding: 1rem;">
+                  <div class="progress-bar" style="max-width: 150px;">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                  </div>
+                </td>
+                <td style="padding: 1rem;">
+                  <a href="case-view.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

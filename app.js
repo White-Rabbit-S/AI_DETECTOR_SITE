@@ -1,5 +1,6 @@
 // TraceGuard - Application JavaScript
 // Handles form submissions, navigation, and interactive features
+// TEST MODE: All authentication disabled
 
 // ==========================================
 // REPORT FORM HANDLING
@@ -84,22 +85,10 @@ const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // TEST MODE: No validation needed - direct login
-    // Store session (in production, use secure tokens)
-    sessionStorage.setItem('authenticated', 'true');
-    sessionStorage.setItem('username', 'investigator');
-    
-    // Redirect to dashboard immediately
+    // Redirect to dashboard immediately - no validation
     window.location.href = 'dashboard.html';
   });
 }
-
-// ==========================================
-// AUTHENTICATION CHECK - DISABLED FOR TESTING
-// ==========================================
-
-// Authentication completely disabled - no checks, no redirects
 
 // ==========================================
 // CASE STATUS UPDATE
@@ -343,6 +332,96 @@ function generateCaseID() {
   const year = new Date().getFullYear();
   const random = Math.floor(Math.random() * 9000) + 1000;
   return `TR-${year}-${random}`;
+}
+
+// ==========================================
+// PROFILE PAGE FUNCTIONS
+// ==========================================
+
+const profileForm = document.getElementById('profileForm');
+if (profileForm) {
+  profileForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success feedback
+    const submitBtn = profileForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = '✓ Profile Updated';
+    submitBtn.style.background = '#10B981';
+    
+    setTimeout(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.style.background = '';
+    }, 2000);
+  });
+}
+
+const securityForm = document.getElementById('securityForm');
+if (securityForm) {
+  securityForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success feedback
+    const submitBtn = securityForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = '✓ Password Changed';
+    submitBtn.style.background = '#10B981';
+    
+    // Clear password fields
+    document.getElementById('currentPassword').value = '';
+    document.getElementById('newPassword').value = '';
+    document.getElementById('confirmPassword').value = '';
+    
+    setTimeout(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.style.background = '';
+    }, 2000);
+  });
+}
+
+const notificationForm = document.getElementById('notificationForm');
+if (notificationForm) {
+  notificationForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success feedback
+    const submitBtn = notificationForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = '✓ Preferences Saved';
+    submitBtn.style.background = '#10B981';
+    
+    setTimeout(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.style.background = '';
+    }, 2000);
+  });
+}
+
+// ==========================================
+// CASE STATUS PAGE FUNCTIONS
+// ==========================================
+
+function exportReport() {
+  alert('Exporting case status report...');
+  // In production, this would generate and download a CSV or PDF
+  console.log('Case status report export initiated');
+}
+
+const statusFilter = document.getElementById('statusFilter');
+const priorityFilter = document.getElementById('priorityFilter');
+
+if (statusFilter) {
+  statusFilter.addEventListener('change', function() {
+    console.log('Filtering by status:', this.value);
+    // In production, this would filter the table
+  });
+}
+
+if (priorityFilter) {
+  priorityFilter.addEventListener('change', function() {
+    console.log('Filtering by priority:', this.value);
+    // In production, this would filter the table
+  });
 }
 
 // ==========================================
