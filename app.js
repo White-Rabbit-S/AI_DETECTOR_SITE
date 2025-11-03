@@ -85,29 +85,13 @@ if (loginForm) {
   loginForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    // TEST MODE: No validation needed - direct login
+    // Store session (in production, use secure tokens)
+    sessionStorage.setItem('authenticated', 'true');
+    sessionStorage.setItem('username', 'investigator');
     
-    // TEST MODE: Skip credential verification for demo purposes
-    // Any username/password will work for testing
-    if (username && password) {
-      // Store session (in production, use secure tokens)
-      sessionStorage.setItem('authenticated', 'true');
-      sessionStorage.setItem('username', username);
-      
-      // Redirect to dashboard
-      window.location.href = 'dashboard.html';
-    } else {
-      // Show error message only if fields are empty
-      const loginError = document.getElementById('loginError');
-      loginError.textContent = 'Please enter both username and password.';
-      loginError.style.display = 'block';
-      
-      // Hide error after 3 seconds
-      setTimeout(() => {
-        loginError.style.display = 'none';
-      }, 3000);
-    }
+    // Redirect to dashboard immediately
+    window.location.href = 'dashboard.html';
   });
 }
 
@@ -115,21 +99,15 @@ if (loginForm) {
 // AUTHENTICATION CHECK
 // ==========================================
 
-// Check authentication for protected pages
+// TEST MODE: Authentication checks disabled
+// All pages are accessible without login
 function checkAuthentication() {
-  const currentPage = window.location.pathname.split('/').pop();
-  const protectedPages = ['dashboard.html', 'case-view.html', 'calendar.html'];
-  
-  if (protectedPages.includes(currentPage)) {
-    const isAuthenticated = sessionStorage.getItem('authenticated');
-    if (!isAuthenticated) {
-      window.location.href = 'login.html';
-    }
-  }
+  // No authentication required for testing
+  return true;
 }
 
-// Run authentication check on page load
-document.addEventListener('DOMContentLoaded', checkAuthentication);
+// Run authentication check on page load (currently disabled)
+// document.addEventListener('DOMContentLoaded', checkAuthentication);
 
 // ==========================================
 // CASE STATUS UPDATE
