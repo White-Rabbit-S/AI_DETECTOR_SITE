@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case View - TraceGuard Investigator">
+  <title>Case View - TraceGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>TraceGuard</h2>
+        <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.25rem;">Investigator Portal</p>
+      </div>
+
+      <nav>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/Graph.png" alt="" class="sidebar-menu-icon">
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.html" class="active">
+              <img src="Img/GetReport.png" alt="" class="sidebar-menu-icon">
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="calendar.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📅</span>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="#case-status">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📊</span>
+              <span>Case Status</span>
+            </a>
+          </li>
+          <li style="margin-top: 2rem;">
+            <a href="#profile">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">👤</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">🚪</span>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Back Button -->
+      <div style="margin-bottom: 1.5rem;">
+        <a href="dashboard.html" style="color: var(--accent-blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500;">
+          ← Back to Dashboard
+        </a>
+      </div>
+
+      <!-- Case Detail Container -->
+      <div class="case-detail">
+        <!-- Case Header -->
+        <div class="case-header">
+          <div>
+            <h1 style="margin-bottom: 0.5rem;">Case #TR-2025-1134</h1>
+            <div style="display: flex; gap: 1rem; align-items: center; color: var(--text-muted);">
+              <span>📅 Submitted: Nov 3, 2025</span>
+              <span class="badge badge-high">High Priority</span>
+            </div>
+          </div>
+          <div>
+            <label for="caseStatus" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: var(--navy);">
+              Case Status
+            </label>
+            <select id="caseStatus" class="status-select">
+              <option value="not-started">Not Started</option>
+              <option value="in-review" selected>In Review</option>
+              <option value="contact-attempted">Contact Attempted</option>
+              <option value="investigation-active">Investigation Active</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Incident Summary -->
+        <div style="margin-bottom: 2rem;">
+          <h3>Incident Summary</h3>
+          <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-blue);">
+            <p style="margin: 0; line-height: 1.8;">
+              The incident occurred on November 1, 2025, at approximately 3:30 PM. The reporter witnessed suspicious activity 
+              near the downtown financial district. Multiple individuals were observed engaging in coordinated activities 
+              that raised concerns. The reporter captured photographic evidence and provided detailed descriptions of the 
+              individuals involved. Immediate attention is recommended due to the potential severity of the situation and 
+              the quality of evidence provided.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div style="margin-bottom: 2rem;">
+          <h3>Contact Information</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div style="background: var(--soft-white); padding: 1.25rem; border-radius: 8px;">
+              <h4 style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">
+                Preferred Contact Method
+              </h4>
+              <p style="margin: 0; color: var(--navy); font-weight: 600;">
+                📧 Email
+              </p>
+            </div>
+            <div style="background: var(--soft-white); padding: 1.25rem; border-radius: 8px;">
+              <h4 style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">
+                Contact Details
+              </h4>
+              <p style="margin: 0; color: var(--navy); font-weight: 600;">
+                reporter2025@email.com
+              </p>
+            </div>
+            <div style="background: var(--soft-white); padding: 1.25rem; border-radius: 8px;">
+              <h4 style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">
+                Preferred Contact Time
+              </h4>
+              <p style="margin: 0; color: var(--navy); font-weight: 600;">
+                🕐 Afternoon (12 PM - 5 PM)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evidence Files -->
+        <div style="margin-bottom: 2rem;">
+          <h3>Evidence Files</h3>
+          <div class="evidence-grid">
+            <div class="evidence-item">
+              <img src="Img/UploadMedia.png" alt="Evidence file 1" style="width: 48px; height: 48px; margin-bottom: 0.5rem;">
+              <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0;">photo_evidence_1.jpg</p>
+              <button class="btn btn-primary" style="margin-top: 0.75rem; padding: 0.5rem 1rem; font-size: 0.75rem;">
+                View
+              </button>
+            </div>
+            <div class="evidence-item">
+              <img src="Img/UploadMedia.png" alt="Evidence file 2" style="width: 48px; height: 48px; margin-bottom: 0.5rem;">
+              <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0;">photo_evidence_2.jpg</p>
+              <button class="btn btn-primary" style="margin-top: 0.75rem; padding: 0.5rem 1rem; font-size: 0.75rem;">
+                View
+              </button>
+            </div>
+            <div class="evidence-item">
+              <img src="Img/UploadMedia.png" alt="Evidence file 3" style="width: 48px; height: 48px; margin-bottom: 0.5rem;">
+              <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0;">document.pdf</p>
+              <button class="btn btn-primary" style="margin-top: 0.75rem; padding: 0.5rem 1rem; font-size: 0.75rem;">
+                View
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secure Notes Section -->
+        <div class="notes-section">
+          <h3>Secure Investigator Notes</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
+            🔒 All notes are encrypted and only visible to assigned investigators
+          </p>
+          
+          <!-- Existing Notes -->
+          <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+              <h4 style="margin: 0; font-size: 1rem; color: var(--navy);">Initial Review Completed</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Nov 3, 2025 - 9:45 AM</span>
+            </div>
+            <p style="margin: 0; color: var(--text-dark);">
+              Evidence reviewed and appears credible. Photos show clear timestamps and location data. 
+              Need to verify reporter identity and schedule initial contact. Priority level justified.
+            </p>
+          </div>
+
+          <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+              <h4 style="margin: 0; font-size: 1rem; color: var(--navy);">Contact Attempt #1</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Nov 3, 2025 - 2:15 PM</span>
+            </div>
+            <p style="margin: 0; color: var(--text-dark);">
+              Sent initial contact email to reporter. Waiting for response. Set follow-up reminder for tomorrow afternoon.
+            </p>
+          </div>
+
+          <!-- Add New Note -->
+          <form id="notesForm">
+            <div class="form-group">
+              <label for="noteTitle">Note Title</label>
+              <input 
+                type="text" 
+                id="noteTitle" 
+                name="noteTitle" 
+                placeholder="Brief title for this note"
+              >
+            </div>
+            <div class="form-group">
+              <label for="noteContent">Note Content</label>
+              <textarea 
+                id="noteContent" 
+                name="noteContent" 
+                placeholder="Enter detailed notes about this case..."
+                style="min-height: 100px;"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Save Note
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button class="btn btn-primary btn-large">
+          Schedule Follow-up
+        </button>
+        <button class="btn btn-secondary btn-large">
+          Export Case Report
+        </button>
+        <button class="btn btn-secondary btn-large">
+          Request Additional Info
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

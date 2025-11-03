@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Investigator Login - TraceGuard">
+  <title>Investigator Login - TraceGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Login Container -->
+  <div class="login-container">
+    <div class="login-box">
+      <!-- Logo Section -->
+      <div class="login-logo">
+        <img src="Img/Shield.png" alt="TraceGuard Shield" style="width: 64px; height: 64px; margin-bottom: 1rem;">
+        <h1>TraceGuard</h1>
+      </div>
+
+      <!-- Authentication Label -->
+      <div class="login-label">
+        🔐 Authenticated Access Only
+      </div>
+
+      <!-- Error Message (Hidden by default) -->
+      <div id="loginError" style="display: none; background: rgba(239, 68, 68, 0.1); color: var(--danger-red); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center;">
+        Invalid credentials. Please try again.
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" action="#" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            placeholder="Enter your username"
+            required
+            aria-label="Username"
+            autocomplete="username"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Enter your password"
+            required
+            aria-label="Password"
+            autocomplete="current-password"
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-large">
+          Sign In
+        </button>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="#" style="color: var(--accent-blue); text-decoration: none; font-size: 0.875rem;">
+            Forgot password?
+          </a>
+        </div>
+      </form>
+
+      <!-- Security Notice -->
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid var(--border-light); text-align: center; font-size: 0.875rem; color: var(--text-muted);">
+        <p style="margin: 0;">
+          For authorized investigators only.<br>
+          All access is monitored and logged.
+        </p>
+      </div>
+
+      <!-- Back to Home Link -->
+      <div style="margin-top: 1.5rem; text-align: center;">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+          ← Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

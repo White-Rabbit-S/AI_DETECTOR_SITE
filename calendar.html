@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendar & Scheduling - TraceGuard Investigator">
+  <title>Calendar - TraceGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>TraceGuard</h2>
+        <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.25rem;">Investigator Portal</p>
+      </div>
+
+      <nav>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/Graph.png" alt="" class="sidebar-menu-icon">
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/GetReport.png" alt="" class="sidebar-menu-icon">
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="calendar.html" class="active">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📅</span>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="#case-status">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📊</span>
+              <span>Case Status</span>
+            </a>
+          </li>
+          <li style="margin-top: 2rem;">
+            <a href="#profile">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">👤</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">🚪</span>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Calendar Header -->
+      <div class="dashboard-header" style="margin-bottom: 2rem;">
+        <h1>Calendar & Scheduling</h1>
+        <p style="color: var(--text-muted);">Manage appointments, follow-ups, and deadlines</p>
+      </div>
+
+      <!-- Calendar Container -->
+      <div class="calendar-container">
+        <!-- Calendar Controls -->
+        <div class="calendar-header">
+          <div>
+            <h2 style="margin: 0;">November 2025</h2>
+            <p style="color: var(--text-muted); margin: 0.25rem 0 0 0; font-size: 0.875rem;">
+              Week of November 3 - 9
+            </p>
+          </div>
+          <div class="calendar-nav">
+            <button class="btn btn-secondary" onclick="previousWeek()">← Previous</button>
+            <button class="btn btn-secondary" onclick="today()">Today</button>
+            <button class="btn btn-secondary" onclick="nextWeek()">Next →</button>
+            <button class="btn btn-primary" onclick="openAddEventModal()">+ Add Event</button>
+          </div>
+        </div>
+
+        <!-- View Toggle -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border-light);">
+          <button class="btn btn-secondary" style="padding: 0.5rem 1rem;" onclick="changeView('day')">Day</button>
+          <button class="btn btn-primary" style="padding: 0.5rem 1rem;" onclick="changeView('week')">Week</button>
+          <button class="btn btn-secondary" style="padding: 0.5rem 1rem;" onclick="changeView('month')">Month</button>
+        </div>
+
+        <!-- Weekly Calendar Grid -->
+        <div class="calendar-grid">
+          <div class="calendar-day-header">Sunday</div>
+          <div class="calendar-day-header">Monday</div>
+          <div class="calendar-day-header">Tuesday</div>
+          <div class="calendar-day-header">Wednesday</div>
+          <div class="calendar-day-header">Thursday</div>
+          <div class="calendar-day-header">Friday</div>
+          <div class="calendar-day-header">Saturday</div>
+
+          <!-- Sunday, Nov 3 -->
+          <div class="calendar-day">
+            <div class="day-number">3</div>
+            <div class="calendar-event" style="background: var(--navy);">
+              <div style="font-weight: 600;">10:00 AM</div>
+              <div>Case Review - TR-1128</div>
+            </div>
+          </div>
+
+          <!-- Monday, Nov 4 -->
+          <div class="calendar-day">
+            <div class="day-number">4</div>
+            <div class="calendar-event" style="background: var(--accent-blue);">
+              <div style="font-weight: 600;">2:00 PM</div>
+              <div>Follow-up Call - TR-1128</div>
+            </div>
+            <div class="calendar-event" style="background: var(--warning-amber);">
+              <div style="font-weight: 600;">4:00 PM</div>
+              <div>Deadline: Report TR-1125</div>
+            </div>
+          </div>
+
+          <!-- Tuesday, Nov 5 -->
+          <div class="calendar-day">
+            <div class="day-number">5</div>
+            <div class="calendar-event" style="background: var(--accent-blue);">
+              <div style="font-weight: 600;">10:00 AM</div>
+              <div>Document Review - TR-1125</div>
+            </div>
+          </div>
+
+          <!-- Wednesday, Nov 6 -->
+          <div class="calendar-day">
+            <div class="day-number">6</div>
+            <div class="calendar-event" style="background: var(--accent-blue);">
+              <div style="font-weight: 600;">3:30 PM</div>
+              <div>Initial Contact - TR-1122</div>
+            </div>
+          </div>
+
+          <!-- Thursday, Nov 7 -->
+          <div class="calendar-day">
+            <div class="day-number">7</div>
+            <div class="calendar-event" style="background: var(--success-green);">
+              <div style="font-weight: 600;">9:00 AM</div>
+              <div>Team Meeting</div>
+            </div>
+            <div class="calendar-event" style="background: var(--accent-blue);">
+              <div style="font-weight: 600;">1:00 PM</div>
+              <div>Case Review - TR-1134</div>
+            </div>
+          </div>
+
+          <!-- Friday, Nov 8 -->
+          <div class="calendar-day">
+            <div class="day-number">8</div>
+            <div class="calendar-event" style="background: var(--accent-blue);">
+              <div style="font-weight: 600;">11:00 AM</div>
+              <div>Follow-up Email - TR-1131</div>
+            </div>
+          </div>
+
+          <!-- Saturday, Nov 9 -->
+          <div class="calendar-day">
+            <div class="day-number">9</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Events List -->
+      <div class="widget widget-full" style="margin-top: 2rem;">
+        <div class="widget-header">
+          <h3>Upcoming Events & Reminders</h3>
+        </div>
+        <ul class="case-list">
+          <li class="case-item">
+            <div class="case-info">
+              <h4>📞 Follow-up Call - Case #TR-2025-1128</h4>
+              <div class="case-meta">Tomorrow, Nov 4, 2025 at 2:00 PM</div>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                Contact reporter via email regarding additional evidence.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Edit
+              </button>
+              <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Delete
+              </button>
+            </div>
+          </li>
+          <li class="case-item">
+            <div class="case-info">
+              <h4>⚠️ Deadline - Report Submission TR-1125</h4>
+              <div class="case-meta">Tomorrow, Nov 4, 2025 at 4:00 PM</div>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                Final report must be submitted by end of business day.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Edit
+              </button>
+              <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Delete
+              </button>
+            </div>
+          </li>
+          <li class="case-item">
+            <div class="case-info">
+              <h4>📄 Document Review - Case #TR-2025-1125</h4>
+              <div class="case-meta">Nov 5, 2025 at 10:00 AM</div>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                Review uploaded documents and prepare follow-up questions.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Edit
+              </button>
+              <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Delete
+              </button>
+            </div>
+          </li>
+          <li class="case-item">
+            <div class="case-info">
+              <h4>📧 Initial Contact - Case #TR-2025-1122</h4>
+              <div class="case-meta">Nov 6, 2025 at 3:30 PM</div>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                Send first contact email to reporter introducing yourself.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Edit
+              </button>
+              <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Delete
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Event Modal (Hidden by default) -->
+  <div id="addEventModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 2000; align-items: center; justify-content: center;">
+    <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto;">
+      <h2 style="margin-bottom: 1.5rem;">Add New Event</h2>
+      <form id="addEventForm">
+        <div class="form-group">
+          <label for="eventTitle">Event Title *</label>
+          <input type="text" id="eventTitle" name="eventTitle" required placeholder="e.g., Follow-up Call">
+        </div>
+        <div class="form-group">
+          <label for="eventCase">Related Case</label>
+          <select id="eventCase" name="eventCase">
+            <option value="">Select case...</option>
+            <option value="TR-2025-1134">Case #TR-2025-1134</option>
+            <option value="TR-2025-1133">Case #TR-2025-1133</option>
+            <option value="TR-2025-1132">Case #TR-2025-1132</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="eventDate">Date *</label>
+          <input type="date" id="eventDate" name="eventDate" required>
+        </div>
+        <div class="form-group">
+          <label for="eventTime">Time *</label>
+          <input type="time" id="eventTime" name="eventTime" required>
+        </div>
+        <div class="form-group">
+          <label for="eventType">Event Type</label>
+          <select id="eventType" name="eventType">
+            <option value="call">Phone Call</option>
+            <option value="email">Email</option>
+            <option value="review">Document Review</option>
+            <option value="deadline">Deadline</option>
+            <option value="meeting">Meeting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="eventNotes">Notes</label>
+          <textarea id="eventNotes" name="eventNotes" placeholder="Additional details about this event..." style="min-height: 80px;"></textarea>
+        </div>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn btn-primary btn-full">Add Event</button>
+          <button type="button" class="btn btn-secondary btn-full" onclick="closeAddEventModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

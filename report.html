@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit a confidential report to TraceGuard">
+  <title>Report an Incident - TraceGuard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="Img/Shield.png" alt="TraceGuard Shield Icon" class="logo-icon">
+        TraceGuard
+      </a>
+      <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Report Form Section -->
+  <section class="form-section">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>You are in control.</h2>
+        <p>Share what you're comfortable with. Your information is secure and confidential.</p>
+      </div>
+
+      <!-- Success Message (Hidden by default) -->
+      <div id="successMessage" class="success-message">
+        <h3 style="color: white; margin-bottom: 0.5rem;">✓ Your report has been securely submitted</h3>
+        <p style="color: white; margin: 0;">A certified investigator will contact you soon using your preferred method.</p>
+      </div>
+
+      <form id="reportForm" action="#" method="post">
+        <!-- Contact Method -->
+        <div class="form-group">
+          <label for="contactMethod">
+            How should we contact you? *
+            <span style="font-weight: 400; color: var(--text-muted); font-size: 0.875rem;">
+              (Choose your preferred method)
+            </span>
+          </label>
+          <select id="contactMethod" name="contactMethod" required>
+            <option value="">Select contact method...</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="both">Both Email and Phone</option>
+          </select>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="form-group" id="emailGroup" style="display: none;">
+          <label for="email">Your Email Address *</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="your.email@example.com"
+            aria-label="Email address"
+          >
+        </div>
+
+        <div class="form-group" id="phoneGroup" style="display: none;">
+          <label for="phone">Your Phone Number *</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="(555) 123-4567"
+            aria-label="Phone number"
+          >
+        </div>
+
+        <!-- Incident Description -->
+        <div class="form-group">
+          <label for="description">
+            Incident Description *
+            <span style="font-weight: 400; color: var(--text-muted); font-size: 0.875rem;">
+              (Share what happened - only what you're comfortable describing)
+            </span>
+          </label>
+          <textarea 
+            id="description" 
+            name="description" 
+            placeholder="Describe the situation in your own words..."
+            required
+            aria-label="Incident description"
+          ></textarea>
+        </div>
+
+        <!-- Evidence Upload -->
+        <div class="form-group">
+          <label>
+            Evidence Upload (Optional)
+            <span style="font-weight: 400; color: var(--text-muted); font-size: 0.875rem;">
+              (Images, documents, screenshots - only if you feel safe sharing)
+            </span>
+          </label>
+          <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+            <input 
+              type="file" 
+              id="fileInput" 
+              name="evidence" 
+              multiple 
+              accept="image/*,.pdf,.doc,.docx"
+              aria-label="Upload evidence files"
+            >
+            <label for="fileInput" class="file-upload-label">
+              <img src="Img/UploadMedia.png" alt="Upload icon" class="file-upload-icon">
+              <span style="font-weight: 500; color: var(--navy);">Click to upload files</span>
+              <span style="font-size: 0.875rem; color: var(--text-muted);">
+                Images, PDFs, or documents (Max 10MB each)
+              </span>
+            </label>
+          </div>
+          <div id="fileList" style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted);"></div>
+        </div>
+
+        <!-- Preferred Contact Time -->
+        <div class="form-group">
+          <label for="contactTime">
+            Preferred Time for Investigator Contact
+            <span style="font-weight: 400; color: var(--text-muted); font-size: 0.875rem;">
+              (When is best for you?)
+            </span>
+          </label>
+          <select id="contactTime" name="contactTime">
+            <option value="">Select preferred time...</option>
+            <option value="morning">Morning (8 AM - 12 PM)</option>
+            <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+            <option value="evening">Evening (5 PM - 8 PM)</option>
+            <option value="anytime">Anytime</option>
+          </select>
+        </div>
+
+        <!-- Security Reminder -->
+        <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-blue);">
+          <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1rem;">🔒 Your submission is secure</h4>
+          <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            <li>All data is encrypted end-to-end</li>
+            <li>Your identity is never shared without your consent</li>
+            <li>You can remain anonymous if you choose</li>
+            <li>Only verified investigators will see your report</li>
+          </ul>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-full btn-large">
+          Submit Confidential Report
+        </button>
+
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+          * Required fields
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p style="color: rgba(255, 255, 255, 0.8);">
+          Need help? Contact us at 
+          <a href="mailto:support@traceguard.com">support@traceguard.com</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

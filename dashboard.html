@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Investigator Dashboard - TraceGuard">
+  <title>Dashboard - TraceGuard Investigator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>TraceGuard</h2>
+        <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.25rem;">Investigator Portal</p>
+      </div>
+
+      <nav>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="dashboard.html" class="active">
+              <img src="Img/Graph.png" alt="" class="sidebar-menu-icon">
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.html">
+              <img src="Img/GetReport.png" alt="" class="sidebar-menu-icon">
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="calendar.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📅</span>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="#case-status">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">📊</span>
+              <span>Case Status</span>
+            </a>
+          </li>
+          <li style="margin-top: 2rem;">
+            <a href="#profile">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">👤</span>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html">
+              <span style="width: 20px; height: 20px; display: inline-block; text-align: center;">🚪</span>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard Header -->
+      <div class="dashboard-header">
+        <h1>Dashboard</h1>
+        <p style="color: var(--text-muted);">Welcome back, Investigator</p>
+      </div>
+
+      <!-- Analytics Snapshot -->
+      <div class="widget widget-full" style="margin-bottom: 2rem;">
+        <div class="widget-header">
+          <h3>Analytics Snapshot</h3>
+          <span style="font-size: 0.875rem; color: var(--text-muted);">This Month</span>
+        </div>
+        <div class="analytics-grid">
+          <div class="stat-card">
+            <div class="stat-number">24</div>
+            <div class="stat-label">Total Cases</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">18</div>
+            <div class="stat-label">Active Cases</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3.2</div>
+            <div class="stat-label">Avg. Days to Resolve</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Follow-ups Required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- New Cases Widget -->
+        <div class="widget">
+          <div class="widget-header">
+            <h3>New Cases Assigned</h3>
+            <span class="badge badge-high">4 New</span>
+          </div>
+          <ul class="case-list">
+            <li class="case-item">
+              <div class="case-info">
+                <h4>Case #TR-2025-1134</h4>
+                <div class="case-meta">
+                  <span>Submitted: Nov 3, 2025</span>
+                  <span class="badge badge-high" style="margin-left: 0.5rem;">High</span>
+                </div>
+              </div>
+              <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Open Case
+              </a>
+            </li>
+            <li class="case-item">
+              <div class="case-info">
+                <h4>Case #TR-2025-1133</h4>
+                <div class="case-meta">
+                  <span>Submitted: Nov 3, 2025</span>
+                  <span class="badge badge-medium" style="margin-left: 0.5rem;">Medium</span>
+                </div>
+              </div>
+              <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Open Case
+              </a>
+            </li>
+            <li class="case-item">
+              <div class="case-info">
+                <h4>Case #TR-2025-1132</h4>
+                <div class="case-meta">
+                  <span>Submitted: Nov 2, 2025</span>
+                  <span class="badge badge-medium" style="margin-left: 0.5rem;">Medium</span>
+                </div>
+              </div>
+              <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Open Case
+              </a>
+            </li>
+            <li class="case-item">
+              <div class="case-info">
+                <h4>Case #TR-2025-1131</h4>
+                <div class="case-meta">
+                  <span>Submitted: Nov 2, 2025</span>
+                  <span class="badge badge-low" style="margin-left: 0.5rem;">Low</span>
+                </div>
+              </div>
+              <a href="case-view.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                Open Case
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Active Cases Widget -->
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Active Cases</h3>
+            <span style="font-size: 0.875rem; color: var(--text-muted);">In Progress</span>
+          </div>
+          <ul class="case-list">
+            <li class="case-item" style="flex-direction: column; align-items: flex-start;">
+              <div style="width: 100%; display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                <div class="case-info">
+                  <h4>Case #TR-2025-1128</h4>
+                  <div class="case-meta">Contact Attempted</div>
+                </div>
+                <span style="color: var(--accent-blue); font-weight: 600; font-size: 0.875rem;">75%</span>
+              </div>
+              <div class="progress-bar" style="width: 100%;">
+                <div class="progress-fill" style="width: 75%;"></div>
+              </div>
+            </li>
+            <li class="case-item" style="flex-direction: column; align-items: flex-start;">
+              <div style="width: 100%; display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                <div class="case-info">
+                  <h4>Case #TR-2025-1125</h4>
+                  <div class="case-meta">In Review</div>
+                </div>
+                <span style="color: var(--accent-blue); font-weight: 600; font-size: 0.875rem;">50%</span>
+              </div>
+              <div class="progress-bar" style="width: 100%;">
+                <div class="progress-fill" style="width: 50%;"></div>
+              </div>
+            </li>
+            <li class="case-item" style="flex-direction: column; align-items: flex-start;">
+              <div style="width: 100%; display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                <div class="case-info">
+                  <h4>Case #TR-2025-1122</h4>
+                  <div class="case-meta">In Review</div>
+                </div>
+                <span style="color: var(--accent-blue); font-weight: 600; font-size: 0.875rem;">40%</span>
+              </div>
+              <div class="progress-bar" style="width: 100%;">
+                <div class="progress-fill" style="width: 40%;"></div>
+              </div>
+            </li>
+            <li class="case-item" style="flex-direction: column; align-items: flex-start;">
+              <div style="width: 100%; display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                <div class="case-info">
+                  <h4>Case #TR-2025-1119</h4>
+                  <div class="case-meta">Not Started</div>
+                </div>
+                <span style="color: var(--accent-blue); font-weight: 600; font-size: 0.875rem;">10%</span>
+              </div>
+              <div class="progress-bar" style="width: 100%;">
+                <div class="progress-fill" style="width: 10%;"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Upcoming Follow-ups -->
+      <div class="widget widget-full" style="margin-top: 2rem;">
+        <div class="widget-header">
+          <h3>Upcoming Follow-ups</h3>
+          <a href="calendar.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+            View Calendar
+          </a>
+        </div>
+        <ul class="case-list">
+          <li class="case-item">
+            <div class="case-info">
+              <h4>Case #TR-2025-1128 - Follow-up Call</h4>
+              <div class="case-meta">📅 Nov 4, 2025 at 2:00 PM</div>
+            </div>
+            <span class="badge badge-medium">Tomorrow</span>
+          </li>
+          <li class="case-item">
+            <div class="case-info">
+              <h4>Case #TR-2025-1125 - Document Review</h4>
+              <div class="case-meta">📅 Nov 5, 2025 at 10:00 AM</div>
+            </div>
+            <span class="badge badge-low">2 Days</span>
+          </li>
+          <li class="case-item">
+            <div class="case-info">
+              <h4>Case #TR-2025-1122 - Initial Contact</h4>
+              <div class="case-meta">📅 Nov 6, 2025 at 3:30 PM</div>
+            </div>
+            <span class="badge badge-low">3 Days</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
